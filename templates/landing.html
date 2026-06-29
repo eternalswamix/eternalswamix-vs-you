@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EternalSwamiX vs You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+
+    <script>
+        window.GOOGLE_CLIENT_ID = "{{ google_client_id }}";
+        window.GOOGLE_AUTHORIZED_ORIGINS = {{ google_authorized_origins | tojson }};
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="atmosphere" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="grid-texture"></div>
+    </div>
+
+    <main class="landing">
+        <header class="hero">
+            <h1>EternalSwamiX <span>vs</span> You</h1>
+
+            <p class="subtitle">
+                Talk with my AI clone using your own Gemini API key. Enter the arena.
+            </p>
+            <p class="supporting-copy">
+                Interact with an advanced AI clone in a dark, immersive interface designed for focus.
+            </p>
+        </header>
+
+        <section class="features" aria-label="Features">
+            <div class="feature-chip">
+                <span class="material-symbols-outlined">key</span>
+                <p>Bring your own Gemini API key</p>
+            </div>
+            <div class="feature-chip">
+                <span class="material-symbols-outlined">terminal</span>
+                <p>Dark terminal-style chat</p>
+            </div>
+            <div class="feature-chip">
+                <span class="material-symbols-outlined">palette</span>
+                <p>Theme switching</p>
+            </div>
+            <div class="feature-chip">
+                <span class="material-symbols-outlined">fullscreen</span>
+                <p>Fullscreen mode</p>
+            </div>
+            <div class="feature-chip">
+                <span class="material-symbols-outlined">visibility_off</span>
+                <p>Private and focused experience</p>
+            </div>
+        </section>
+
+        <section class="login-panel" aria-label="Google login">
+            <div class="google-shell">
+                <div class="shine" aria-hidden="true"></div>
+                <div id="googleLoginBox"></div>
+            </div>
+            <p class="auth-note">Secure OAuth Authentication</p>
+            <p id="errorText" class="error-text" role="alert"></p>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+</body>
+</html>

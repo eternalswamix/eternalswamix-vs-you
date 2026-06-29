@@ -1,0 +1,6 @@
+Flask
+python-dotenv
+google-genai
+google-auth
+requests
+supabase

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EternalSwamiX vs You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+
+    <script>
+        window.SUPABASE_URL = "{{ supabase_url }}";
+        window.SUPABASE_ANON_KEY = "{{ supabase_anon_key }}";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <main class="chat-stage">
+            <section id="chatMessages" class="chat-messages" aria-label="Conversation">
+                <div class="message assistant">
+                    <p>Welcome to EternalSwamiX vs You. How can I help?</p>
+                </div>
+            </section>
+        </main>
+
+        <form id="chatForm" class="input-area">
+            <span class="prompt-symbol">&gt;</span>
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Ask EternalSwamiX..."
+                autocomplete="off"
+                autofocus
+            >
+            <button id="voiceInputBtn" type="button" aria-label="Voice input">
+                <span class="material-symbols-outlined">mic</span>
+            </button>
+            <button id="ttsToggleBtn" type="button" aria-label="Toggle text to speech">
+                <span class="material-symbols-outlined">volume_up</span>
+            </button>
+            <button type="submit" aria-label="Send message">
+                <span class="material-symbols-outlined">arrow_upward</span>
+            </button>
+            <span class="cursor-light" aria-hidden="true"></span>
+        </form>
+
+        <button id="sidebarToggle" class="settings-fab" aria-label="Open system config">
+            <span class="material-symbols-outlined">settings</span>
+        </button>
+
+        <aside id="sidebar" class="sidebar" aria-label="System config">
+            <div class="sidebar-header">
+                <div>
+                    <h2>Controls</h2>
+                </div>
+                <button id="closeSidebar" class="nav-icon-btn" aria-label="Close system config">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <nav class="nav-actions" aria-label="Chat controls">
+                <button id="logoutBtn" type="button" class="nav-action">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span>Logout</span>
+                </button>
+                <button id="themeBtn" type="button" class="nav-action">
+                    <span class="material-symbols-outlined">palette</span>
+                    <span>Theme Change</span>
+                </button>
+                <button id="fullscreenBtn" type="button" class="nav-action">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                    <span>Fullscreen</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-section">
+                <label for="apiKeyInput">Gemini API Key</label>
+                <input
+                    type="password"
+                    id="apiKeyInput"
+                    placeholder="Paste your Gemini API key"
+                >
+                <button id="saveApiKeyBtn" type="button" class="side-btn">Save Key</button>
+                <p class="small-note">Stored only in this browser session. Not in database.</p>
+            </div>
+
+            <button id="clearChatBtn" type="button" class="nav-action danger">
+                <span class="material-symbols-outlined">delete_sweep</span>
+                <span>Clear Chat</span>
+            </button>
+
+            <div class="sidebar-user">
+                <p id="userEmail">Checking user...</p>
+            </div>
+        </aside>
+
+        <div id="overlay" class="overlay"></div>
+
+        <div id="apiKeyModal" class="modal">
+            <div class="modal-box">
+                <h2>Authentication Key Required</h2>
+                <p>
+                    EternalSwamiX needs your Gemini API key to reply.
+                    The key stays in this browser session.
+                </p>
+
+                <input
+                    type="password"
+                    id="modalApiKeyInput"
+                    placeholder="Gemini API key"
+                >
+
+                <button id="modalSaveKeyBtn" type="button">Continue</button>
+
+                <p id="modalError" class="modal-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

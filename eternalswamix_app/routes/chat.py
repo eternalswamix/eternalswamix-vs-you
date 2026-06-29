@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, current_app
-from app.services.gemini_service import generate_clone_reply
+from eternalswamix_app.services.gemini_service import generate_clone_reply
 
 chat_bp = Blueprint("chat", __name__)
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, session, current_app
-from app.services.google_auth_service import verify_google_token
-from app.services.supabase_service import save_google_user
+from eternalswamix_app.services.google_auth_service import verify_google_token
+from eternalswamix_app.services.supabase_service import save_google_user
 
 auth_bp = Blueprint("auth", __name__)
 

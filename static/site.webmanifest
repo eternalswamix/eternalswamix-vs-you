@@ -1,0 +1,16 @@
+{
+  "name": "EternalSwamiX vs You",
+  "short_name": "EternalSwamiX",
+  "description": "A futuristic AI clone chat web app with Google auth, Gemini API support, voice input, text-to-speech, and cinematic black-theme UI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/static/assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
